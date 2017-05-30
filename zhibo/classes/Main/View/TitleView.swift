@@ -51,6 +51,7 @@ class TitleView: UIView {
 }
 
 
+// MARK: - setup UI
 extension TitleView {
     
     fileprivate func setupUI() {

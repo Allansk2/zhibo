@@ -19,6 +19,21 @@ class HomeViewController: UIViewController {
         let titleView = TitleView(frame: rect, titles: titles)
         return titleView
     }()
+    
+    fileprivate lazy var contentView: ContentView = {
+        let contentY = StatusBarH + NavigationBarH + titleViewH
+        let rect = CGRect(x: 0, y: contentY, width: ScreenW, height: ScreenH -  contentY)
+        
+        var childVCs = [UIViewController]()
+        for _ in 0..<4 {
+            let vc = UIViewController()
+            childVCs.append(vc)
+            vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(256)), g: CGFloat(arc4random_uniform(256)), b: CGFloat(arc4random_uniform(256)))
+        }
+        let contentView = ContentView(frame: rect, childVCs: childVCs, parentVC: self)
+        return contentView
+    }()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +55,8 @@ extension HomeViewController {
         setupNavigationBar()
         
         view.addSubview(titleView)
+        
+        view.addSubview(contentView)
     }
     
     private func setupNavigationBar() {
