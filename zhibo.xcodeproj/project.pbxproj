@@ -12,6 +12,8 @@
 		5D2B22A21EDCFF94003820DA /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2B22A01EDCFF94003820DA /* Follow.storyboard */; };
 		5D2B22A51EDCFFB3003820DA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2B22A31EDCFFB3003820DA /* Profile.storyboard */; };
 		5D2B22A71EDD003A003820DA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B22A61EDD003A003820DA /* MainViewController.swift */; };
+		5D2B22BA1EDD03D3003820DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B22B91EDD03D3003820DA /* HomeViewController.swift */; };
+		5D2B22BD1EDD06D2003820DA /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B22BC1EDD06D2003820DA /* UIBarButtonItem+Extension.swift */; };
 		5DC4EAA61EDCA529008860E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4EAA51EDCA529008860E4 /* AppDelegate.swift */; };
 		5DC4EAAB1EDCA529008860E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC4EAA91EDCA529008860E4 /* Main.storyboard */; };
 		5DC4EAAD1EDCA529008860E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC4EAAC1EDCA529008860E4 /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 		5D2B22A11EDCFF94003820DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = zhibo/Base.lproj/Follow.storyboard; sourceTree = SOURCE_ROOT; };
 		5D2B22A41EDCFFB3003820DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = zhibo/Base.lproj/Profile.storyboard; sourceTree = SOURCE_ROOT; };
 		5D2B22A61EDD003A003820DA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5D2B22B91EDD03D3003820DA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5D2B22BC1EDD06D2003820DA /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		5DC4EAA21EDCA529008860E4 /* zhibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC4EAA51EDCA529008860E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DC4EAAA1EDCA529008860E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +47,122 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D2B22A81EDD0292003820DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5D2B22B91EDD03D3003820DA /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5D2B22A91EDD0292003820DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5D2B22AA1EDD0292003820DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D2B229A1EDCFEDA003820DA /* Home.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5D2B22AB1EDD02D8003820DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5D2B22AC1EDD02D8003820DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5D2B22AD1EDD02D8003820DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5DC4EAA91EDCA529008860E4 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5D2B22AE1EDD02E7003820DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5D2B22AF1EDD02E7003820DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5D2B22B01EDD02E7003820DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5D2B22B11EDD02F2003820DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5D2B22B21EDD02F2003820DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5D2B22B31EDD02F2003820DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5D2B22B41EDD02F9003820DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5D2B22B51EDD02F9003820DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5D2B22B61EDD02F9003820DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5D2B22BB1EDD06B6003820DA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5D2B22BC1EDD06D2003820DA /* UIBarButtonItem+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		5DC4EA991EDCA529008860E4 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +207,9 @@
 		5DC4EABA1EDCA9BD008860E4 /* Follow */ = {
 			isa = PBXGroup;
 			children = (
+				5D2B22B21EDD02F2003820DA /* Model */,
+				5D2B22B31EDD02F2003820DA /* View */,
+				5D2B22B11EDD02F2003820DA /* Controller */,
 				5D2B22A01EDCFF94003820DA /* Follow.storyboard */,
 			);
 			path = Follow;
@@ -95,7 +218,9 @@
 		5DC4EABB1EDCA9BD008860E4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				5D2B229A1EDCFEDA003820DA /* Home.storyboard */,
+				5D2B22A91EDD0292003820DA /* Model */,
+				5D2B22AA1EDD0292003820DA /* View */,
+				5D2B22A81EDD0292003820DA /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -103,6 +228,9 @@
 		5DC4EABC1EDCA9BD008860E4 /* Live */ = {
 			isa = PBXGroup;
 			children = (
+				5D2B22AF1EDD02E7003820DA /* Model */,
+				5D2B22B01EDD02E7003820DA /* View */,
+				5D2B22AE1EDD02E7003820DA /* Controller */,
 				5D2B229D1EDCFF7C003820DA /* Live.storyboard */,
 			);
 			path = Live;
@@ -111,7 +239,9 @@
 		5DC4EABD1EDCA9BD008860E4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				5DC4EAA91EDCA529008860E4 /* Main.storyboard */,
+				5D2B22AC1EDD02D8003820DA /* Model */,
+				5D2B22AD1EDD02D8003820DA /* View */,
+				5D2B22AB1EDD02D8003820DA /* Controller */,
 				5D2B22A61EDD003A003820DA /* MainViewController.swift */,
 			);
 			path = Main;
@@ -120,6 +250,9 @@
 		5DC4EABE1EDCA9BD008860E4 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				5D2B22B51EDD02F9003820DA /* Model */,
+				5D2B22B61EDD02F9003820DA /* View */,
+				5D2B22B41EDD02F9003820DA /* Controller */,
 				5D2B22A31EDCFFB3003820DA /* Profile.storyboard */,
 			);
 			path = Profile;
@@ -128,6 +261,7 @@
 		5DC4EABF1EDCA9BD008860E4 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5D2B22BB1EDD06B6003820DA /* Extension */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -208,8 +342,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D2B22BD1EDD06D2003820DA /* UIBarButtonItem+Extension.swift in Sources */,
 				5DC4EAA61EDCA529008860E4 /* AppDelegate.swift in Sources */,
 				5D2B22A71EDD003A003820DA /* MainViewController.swift in Sources */,
+				5D2B22BA1EDD03D3003820DA /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +358,7 @@
 				5D2B229B1EDCFEDA003820DA /* Base */,
 			);
 			name = Home.storyboard;
-			path = ../..;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 		5D2B229D1EDCFF7C003820DA /* Live.storyboard */ = {
@@ -258,7 +394,7 @@
 				5DC4EAAA1EDCA529008860E4 /* Base */,
 			);
 			name = Main.storyboard;
-			path = ../..;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 		5DC4EAAE1EDCA529008860E4 /* LaunchScreen.storyboard */ = {
