@@ -8,11 +8,22 @@
 
 import UIKit
 
+let titleViewH: CGFloat = 40
+
 class HomeViewController: UIViewController {
+    
+    fileprivate lazy var titleView: TitleView = {
+        
+        let rect = CGRect(x: 0, y: StatusBarH + NavigationBarH, width: ScreenW, height: titleViewH )
+        let titles = ["推荐", "游戏", "娱乐", "趣玩"]
+        let titleView = TitleView(frame: rect, titles: titles)
+        return titleView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // setup UI
         setupUI()
      }
 
@@ -24,7 +35,11 @@ extension HomeViewController {
     
     fileprivate func setupUI() {
         
+        automaticallyAdjustsScrollViewInsets = false
+        
         setupNavigationBar()
+        
+        view.addSubview(titleView)
     }
     
     private func setupNavigationBar() {
