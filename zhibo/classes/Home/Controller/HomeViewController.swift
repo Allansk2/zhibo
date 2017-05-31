@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(256)), g: CGFloat(arc4random_uniform(256)), b: CGFloat(arc4random_uniform(256)))
         }
         let contentView = ContentView(frame: rect, childVCs: childVCs, parentVC: self)
+        contentView.delegate = self
         return contentView
     }()
 
@@ -83,7 +84,16 @@ extension HomeViewController {
 extension HomeViewController: TitleViewDelegate {
     
     func titleView(titleView: TitleView, selectedIndex index: Int) {
-        contentView.setCurrentVC(index: index)
+//        contentView.setCurrentVC(index: index)
+        
+    }
+}
+
+
+// MARK: - ContentViewDelegate
+extension HomeViewController: ContentViewDelegate {
+    func contentView(contentView: ContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        titleView.setProgress(progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
 }
 

@@ -8,12 +8,18 @@
 
 import UIKit
 
+
+protocol ContentViewDelegate: class {
+    func contentView(contentView: ContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int)
+}
+
 private let cellID = "cellID"
 class ContentView: UIView {
     
     fileprivate var childVCs: [UIViewController]
     fileprivate weak var parentVC: UIViewController?
     fileprivate var startOffsetX: CGFloat = 0
+    weak var delegate: ContentViewDelegate?
 
     fileprivate lazy var collectionView : UICollectionView = { [weak self] in
         
@@ -107,7 +113,7 @@ extension ContentView {
     func setCurrentVC(index: Int)  {
 
         let offsetX = CGFloat(index) * collectionView.frame.width
-        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
         
     }
 }
@@ -154,7 +160,7 @@ extension ContentView: UICollectionViewDelegate {
         
         // pass variables to title view
         print("progress \(progress) sourceIndex \(sourceIndex) targetIndex \(targetIndex) ")
-        
+        delegate?.contentView(contentView: self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
         
     }
     

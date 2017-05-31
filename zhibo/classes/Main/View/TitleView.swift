@@ -12,14 +12,19 @@ protocol TitleViewDelegate: class {
     func titleView(titleView: TitleView, selectedIndex index: Int)
 }
 
-private let underLineViewH: CGFloat = 2
+private let normalColor: (CGFloat, CGFloat, CGFloat) = (85, 85, 85)
+private let highlightColor: (CGFloat, CGFloat, CGFloat) = (255, 128, 0)
+
 
 class TitleView: UIView {
+    
+    fileprivate let underLineViewH: CGFloat = 2
     
     fileprivate var chooseLabel: Int = 0
     
     fileprivate var titles: [String]
     
+ 
     weak var delegate: TitleViewDelegate?
     
     fileprivate lazy var scrollView: UIScrollView = {
@@ -33,7 +38,7 @@ class TitleView: UIView {
     
     fileprivate lazy var underLineView: UIView = {
         let underLineView = UIView()
-        underLineView.backgroundColor = UIColor.orange
+        underLineView.backgroundColor = UIColor(r: highlightColor.0, g: highlightColor.1, b: highlightColor.2)
         
         return underLineView
     }()
@@ -91,7 +96,7 @@ extension TitleView {
             label.text = title
             label.tag = index
             label.font = UIFont.systemFont(ofSize: 16.0)
-            label.textColor = UIColor.darkGray
+            label.textColor = UIColor(r: normalColor.0, g: normalColor.1, b: normalColor.2)
             label.textAlignment = .center
             
             // 3. set frame
@@ -116,7 +121,7 @@ extension TitleView {
     private func setupSeparatorLine() {
         // create separator line
         let underLine = UIView()
-        underLine.backgroundColor = UIColor.darkGray
+        underLine.backgroundColor = UIColor(r: normalColor.0, g: normalColor.1, b: normalColor.2)
         let lineH: CGFloat = 0.5
         underLine.frame = CGRect(x: 0, y: frame.height - lineH, width: frame.width, height: lineH)
         
@@ -130,7 +135,7 @@ extension TitleView {
         guard let firstLabel = titleLabels.first else {
             return
         }
-        firstLabel.textColor = UIColor.orange
+        firstLabel.textColor = UIColor(r: highlightColor.0, g: highlightColor.1, b: highlightColor.2)
         underLineView.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height - underLineViewH, width: firstLabel.frame.width, height: underLineViewH)
         
         
@@ -148,26 +153,54 @@ extension TitleView {
             return
         }
         
-        // get last tap label
-        let lastLabel = titleLabels[chooseLabel]
+        if label.tag != chooseLabel {
         
-        // change text color
-        label.textColor = UIColor.orange
-        lastLabel.textColor = UIColor.darkGray
-        
-        // change underlineView frame
-        let offsetX = CGFloat(label.tag) * underLineView.frame.width
-        UIView.animate(withDuration: 0.2) { 
+            // get last tap label
+            let lastLabel = titleLabels[chooseLabel]
             
-            self.underLineView.frame.origin.x = offsetX
+            // change text color
+            label.textColor = UIColor(r: highlightColor.0, g: highlightColor.1, b: highlightColor.2)
+            lastLabel.textColor = UIColor(r: normalColor.0, g: normalColor.1, b: normalColor.2)
+            
+            // change underlineView frame
+            let offsetX = CGFloat(label.tag) * underLineView.frame.width
+            UIView.animate(withDuration: 0.2) {
+                
+                self.underLineView.frame.origin.x = offsetX
+            }
+            
+            chooseLabel = label.tag
+            
+            // send delegate to update content view
+            delegate?.titleView(titleView: self, selectedIndex: chooseLabel)
         }
-        
-        chooseLabel = label.tag
-        
-        // send delegate to update content view
-        delegate?.titleView(titleView: self, selectedIndex: chooseLabel)
     }
     
 }
 
+
+
+// MARK: - public func
+extension TitleView {
+    func setProgress(progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        
+        // get source lable and target label
+        let sourceLable = titleLabels[sourceIndex]
+        let targetLabel = titleLabels[targetIndex]
+        
+        // set underline view frame
+        let moveDelta = (targetLabel.frame.origin.x - sourceLable.frame.origin.x) * progress
+        underLineView.frame.origin.x = sourceLable.frame.origin.x + moveDelta
+        
+        // get color difference
+        let colorDelta = (highlightColor.0 - normalColor.0, highlightColor.1 - normalColor.1, highlightColor.2 - normalColor.2)
+        
+        // change new color for source label and target label
+        sourceLable.textColor = UIColor(r: highlightColor.0 - colorDelta.0 * progress, g: highlightColor.1 - colorDelta.1 * progress, b: highlightColor.2 - colorDelta.2 * progress)
+        
+        targetLabel.textColor = UIColor(r: normalColor.0 + colorDelta.0 * progress, g: normalColor.1 + colorDelta.1 * progress, b: normalColor.2 + colorDelta.2 * progress)
+        
+    }
+    
+}
 
