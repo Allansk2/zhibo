@@ -84,7 +84,7 @@ extension HomeViewController {
 extension HomeViewController: TitleViewDelegate {
     
     func titleView(titleView: TitleView, selectedIndex index: Int) {
-//        contentView.setCurrentVC(index: index)
+        contentView.setCurrentVC(index: index)
         
     }
 }

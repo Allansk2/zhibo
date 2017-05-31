@@ -20,6 +20,7 @@ class ContentView: UIView {
     fileprivate weak var parentVC: UIViewController?
     fileprivate var startOffsetX: CGFloat = 0
     weak var delegate: ContentViewDelegate?
+    fileprivate var shouldCallScrollDelegat: Bool = true
 
     fileprivate lazy var collectionView : UICollectionView = { [weak self] in
         
@@ -111,10 +112,14 @@ extension ContentView : UICollectionViewDataSource {
 extension ContentView {
     
     func setCurrentVC(index: Int)  {
-
+        // set should call scroll delegate
+        shouldCallScrollDelegat = false
+        
         let offsetX = CGFloat(index) * collectionView.frame.width
         collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
         
+        // reset should call scroll delegate
+        shouldCallScrollDelegat = true
     }
 }
 
@@ -131,37 +136,38 @@ extension ContentView: UICollectionViewDelegate {
         var sourceIndex: Int = 0
         var targetIndex: Int = 0
         
-      
-        let currentOffsetX = scrollView.contentOffset.x
-        if currentOffsetX > startOffsetX {
-            sourceIndex = Int(floor(currentOffsetX / collectionView.frame.width))
-            progress = CGFloat(currentOffsetX) / collectionView.frame.width - CGFloat(sourceIndex)
-            targetIndex = sourceIndex + 1
-            if targetIndex > childVCs.count - 1 {
-                targetIndex = childVCs.count - 1
+        if shouldCallScrollDelegat {
+            let currentOffsetX = scrollView.contentOffset.x
+            if currentOffsetX > startOffsetX {
+                sourceIndex = Int(floor(currentOffsetX / collectionView.frame.width))
+                progress = CGFloat(currentOffsetX) / collectionView.frame.width - CGFloat(sourceIndex)
+                targetIndex = sourceIndex + 1
+                if targetIndex > childVCs.count - 1 {
+                    targetIndex = childVCs.count - 1
+                }
+                if (startOffsetX + collectionView.frame.width) == currentOffsetX {
+                    progress = 1
+                    targetIndex = sourceIndex
+                }
+            }else {
+                targetIndex = Int(floor(currentOffsetX / collectionView.frame.width))
+                sourceIndex = targetIndex + 1
+                progress = 1 - (CGFloat(currentOffsetX) / collectionView.frame.width - CGFloat(targetIndex))
+                
+                if sourceIndex > childVCs.count - 1 {
+                    sourceIndex = childVCs.count - 1
+                }
+                if (startOffsetX - collectionView.frame.width) == currentOffsetX {
+                    progress = 1
+                    sourceIndex = targetIndex
+                }
             }
-            if (startOffsetX + collectionView.frame.width) == currentOffsetX {
-                progress = 1
-                targetIndex = sourceIndex
-            }
-        }else {
-            targetIndex = Int(floor(currentOffsetX / collectionView.frame.width))
-            sourceIndex = targetIndex + 1
-            progress = 1 - (CGFloat(currentOffsetX) / collectionView.frame.width - CGFloat(targetIndex))
-  
-            if sourceIndex > childVCs.count - 1 {
-                sourceIndex = childVCs.count - 1
-            }
-            if (startOffsetX - collectionView.frame.width) == currentOffsetX {
-                progress = 1
-                sourceIndex = targetIndex
-            }
+            
+            // pass variables to title view
+            delegate?.contentView(contentView: self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+            
         }
-        
-        // pass variables to title view
-        print("progress \(progress) sourceIndex \(sourceIndex) targetIndex \(targetIndex) ")
-        delegate?.contentView(contentView: self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
-        
+       
     }
     
     

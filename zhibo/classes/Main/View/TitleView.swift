@@ -200,6 +200,11 @@ extension TitleView {
         
         targetLabel.textColor = UIColor(r: normalColor.0 + colorDelta.0 * progress, g: normalColor.1 + colorDelta.1 * progress, b: normalColor.2 + colorDelta.2 * progress)
         
+        // set choose label
+        if progress == 1 {
+            chooseLabel = targetIndex
+        }
+        
     }
     
 }
