@@ -8,11 +8,19 @@
 
 import UIKit
 
+protocol TitleViewDelegate: class {
+    func titleView(titleView: TitleView, selectedIndex index: Int)
+}
+
 private let underLineViewH: CGFloat = 2
 
 class TitleView: UIView {
     
+    fileprivate var chooseLabel: Int = 0
+    
     fileprivate var titles: [String]
+    
+    weak var delegate: TitleViewDelegate?
     
     fileprivate lazy var scrollView: UIScrollView = {
         let scrollView =  UIScrollView()
@@ -90,9 +98,15 @@ extension TitleView {
             let lableX: CGFloat = lableW * CGFloat(index)
             label.frame = CGRect(x: lableX, y: lableY, width: lableW, height: lableH)
             
+            // 4. add lable
             addSubview(label)
-            
             titleLabels.append(label)
+            
+            // 5. add pan gesture
+            label.isUserInteractionEnabled = true
+            let tapGes = UITapGestureRecognizer(target: self, action: #selector(self.titleLableTap(gesture:)))
+ 
+            label.addGestureRecognizer(tapGes)
             
         }
         
@@ -122,10 +136,38 @@ extension TitleView {
         
     }
     
-    
-    
 }
 
 
+// MARK: - gesture selector
+extension TitleView {
+    @objc fileprivate func titleLableTap(gesture: UITapGestureRecognizer) {
+        
+        // get tap label
+        guard let label = gesture.view as? UILabel else {
+            return
+        }
+        
+        // get last tap label
+        let lastLabel = titleLabels[chooseLabel]
+        
+        // change text color
+        label.textColor = UIColor.orange
+        lastLabel.textColor = UIColor.darkGray
+        
+        // change underlineView frame
+        let offsetX = CGFloat(label.tag) * underLineView.frame.width
+        UIView.animate(withDuration: 0.2) { 
+            
+            self.underLineView.frame.origin.x = offsetX
+        }
+        
+        chooseLabel = label.tag
+        
+        // send delegate to update content view
+        delegate?.titleView(titleView: self, selectedIndex: chooseLabel)
+    }
+    
+}
 
 

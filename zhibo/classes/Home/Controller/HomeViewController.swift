@@ -12,15 +12,16 @@ let titleViewH: CGFloat = 40
 
 class HomeViewController: UIViewController {
     
-    fileprivate lazy var titleView: TitleView = {
+    fileprivate lazy var titleView: TitleView = {[weak self] in
         
         let rect = CGRect(x: 0, y: StatusBarH + NavigationBarH, width: ScreenW, height: titleViewH )
         let titles = ["推荐", "游戏", "娱乐", "趣玩"]
         let titleView = TitleView(frame: rect, titles: titles)
+        titleView.delegate = self
         return titleView
     }()
     
-    fileprivate lazy var contentView: ContentView = {
+    fileprivate lazy var contentView: ContentView = {[weak self] in
         let contentY = StatusBarH + NavigationBarH + titleViewH
         let rect = CGRect(x: 0, y: contentY, width: ScreenW, height: ScreenH -  contentY)
         
@@ -76,3 +77,14 @@ extension HomeViewController {
     }
     
 }
+
+
+// MARK: - TitleViewDelegate
+extension HomeViewController: TitleViewDelegate {
+    
+    func titleView(titleView: TitleView, selectedIndex index: Int) {
+        contentView.setCurrentVC(index: index)
+    }
+}
+
+

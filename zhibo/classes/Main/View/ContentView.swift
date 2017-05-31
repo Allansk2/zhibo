@@ -12,13 +12,14 @@ private let cellID = "cellID"
 class ContentView: UIView {
     
     fileprivate var childVCs: [UIViewController]
-    fileprivate var parentVC: UIViewController
+    fileprivate weak var parentVC: UIViewController?
+    fileprivate var startOffsetX: CGFloat = 0
 
-    fileprivate lazy var collectionView : UICollectionView = {
+    fileprivate lazy var collectionView : UICollectionView = { [weak self] in
         
         // 1. set flow layout
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = self.bounds.size
+        layout.itemSize = (self?.bounds.size)!
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
@@ -29,12 +30,13 @@ class ContentView: UIView {
         collectionView.isPagingEnabled = true
         collectionView.bounces = false
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         
         return collectionView
     }()
 
-    init(frame: CGRect, childVCs: [UIViewController], parentVC: UIViewController) {
+    init(frame: CGRect, childVCs: [UIViewController], parentVC: UIViewController?) {
         
         self.childVCs = childVCs
         self.parentVC = parentVC
@@ -60,7 +62,7 @@ extension ContentView {
         
         // 1. add all childVC
         for childVC in childVCs {
-            parentVC.addChildViewController(childVC)
+            parentVC?.addChildViewController(childVC)
         }
         
         // 2. add connectionView
@@ -96,6 +98,70 @@ extension ContentView : UICollectionViewDataSource {
     }
     
 }
+
+
+
+// MARK: - public func
+extension ContentView {
+    
+    func setCurrentVC(index: Int)  {
+
+        let offsetX = CGFloat(index) * collectionView.frame.width
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
+        
+    }
+}
+
+extension ContentView: UICollectionViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        // get start offset 
+        startOffsetX = scrollView.contentOffset.x
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        var progress: CGFloat = 0
+        var sourceIndex: Int = 0
+        var targetIndex: Int = 0
+        
+      
+        let currentOffsetX = scrollView.contentOffset.x
+        if currentOffsetX > startOffsetX {
+            sourceIndex = Int(floor(currentOffsetX / collectionView.frame.width))
+            progress = CGFloat(currentOffsetX) / collectionView.frame.width - CGFloat(sourceIndex)
+            targetIndex = sourceIndex + 1
+            if targetIndex > childVCs.count - 1 {
+                targetIndex = childVCs.count - 1
+            }
+            if (startOffsetX + collectionView.frame.width) == currentOffsetX {
+                progress = 1
+                targetIndex = sourceIndex
+            }
+        }else {
+            targetIndex = Int(floor(currentOffsetX / collectionView.frame.width))
+            sourceIndex = targetIndex + 1
+            progress = 1 - (CGFloat(currentOffsetX) / collectionView.frame.width - CGFloat(targetIndex))
+  
+            if sourceIndex > childVCs.count - 1 {
+                sourceIndex = childVCs.count - 1
+            }
+            if (startOffsetX - collectionView.frame.width) == currentOffsetX {
+                progress = 1
+                sourceIndex = targetIndex
+            }
+        }
+        
+        // pass variables to title view
+        print("progress \(progress) sourceIndex \(sourceIndex) targetIndex \(targetIndex) ")
+        
+        
+    }
+    
+    
+}
+
+
 
 
 
