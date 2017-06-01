@@ -23,10 +23,11 @@ class HomeViewController: UIViewController {
     
     fileprivate lazy var contentView: ContentView = {[weak self] in
         let contentY = StatusBarH + NavigationBarH + titleViewH
-        let rect = CGRect(x: 0, y: contentY, width: ScreenW, height: ScreenH -  contentY)
+        let rect = CGRect(x: 0, y: contentY, width: ScreenW, height: ScreenH -  contentY - TabbarH)
         
         var childVCs = [UIViewController]()
-        for _ in 0..<4 {
+        childVCs.append(RecommendViewController())
+        for _ in 0..<3 {
             let vc = UIViewController()
             childVCs.append(vc)
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(256)), g: CGFloat(arc4random_uniform(256)), b: CGFloat(arc4random_uniform(256)))
