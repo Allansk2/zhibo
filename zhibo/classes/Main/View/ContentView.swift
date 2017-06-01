@@ -10,7 +10,7 @@ import UIKit
 
 
 protocol ContentViewDelegate: class {
-    func contentView(contentView: ContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int)
+    func contentView(_ contentView: ContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int)
 }
 
 private let cellID = "cellID"
@@ -111,7 +111,7 @@ extension ContentView : UICollectionViewDataSource {
 // MARK: - public func
 extension ContentView {
     
-    func setCurrentVC(index: Int)  {
+    func setCurrentVC(_ index: Int)  {
         // set should call scroll delegate
         shouldCallScrollDelegat = false
         
@@ -164,7 +164,7 @@ extension ContentView: UICollectionViewDelegate {
             }
             
             // pass variables to title view
-            delegate?.contentView(contentView: self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+            delegate?.contentView(self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
             
         }
        

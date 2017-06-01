@@ -35,10 +35,10 @@ extension MainViewController {
     // setup UI
     fileprivate func setupUI() {
         
-        addChildVC(name: "Home")
-        addChildVC(name: "Live")
-        addChildVC(name: "Follow")
-        addChildVC(name: "Profile")
+        addChildVC("Home")
+        addChildVC("Live")
+        addChildVC("Follow")
+        addChildVC("Profile")
 
     }
     
@@ -46,7 +46,7 @@ extension MainViewController {
     /// add child viewcontroller
     ///
     /// - Parameter name: child viewcontroller name
-    private func addChildVC(name: String) {
+    fileprivate func addChildVC(_ name: String) {
         // 1. get controller from storyboard
         let childVC = UIStoryboard(name: name, bundle: nil).instantiateInitialViewController() ?? UIViewController()
         

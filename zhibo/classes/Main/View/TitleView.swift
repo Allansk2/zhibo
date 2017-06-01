@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TitleViewDelegate: class {
-    func titleView(titleView: TitleView, selectedIndex index: Int)
+    func titleView(_ titleView: TitleView, selectedIndex index: Int)
 }
 
 private let normalColor: (CGFloat, CGFloat, CGFloat) = (85, 85, 85)
@@ -82,7 +82,7 @@ extension TitleView {
     }
     
     
-    private func setupTitleLables() {
+    fileprivate func setupTitleLables() {
         
         let lableW: CGFloat = frame.width / CGFloat(titles.count)
         let lableH: CGFloat = frame.height - underLineViewH
@@ -109,8 +109,9 @@ extension TitleView {
             
             // 5. add pan gesture
             label.isUserInteractionEnabled = true
-            let tapGes = UITapGestureRecognizer(target: self, action: #selector(self.titleLableTap(gesture:)))
- 
+//            let tapGes = UITapGestureRecognizer(target: self, action: #selector(self.titleLableTap(gesture:)))
+        
+            let tapGes = UITapGestureRecognizer(target: self, action: #selector(titleLableTap(_:)))
             label.addGestureRecognizer(tapGes)
             
         }
@@ -118,7 +119,7 @@ extension TitleView {
     }
     
     
-    private func setupSeparatorLine() {
+    fileprivate func setupSeparatorLine() {
         // create separator line
         let underLine = UIView()
         underLine.backgroundColor = UIColor(r: normalColor.0, g: normalColor.1, b: normalColor.2)
@@ -129,7 +130,7 @@ extension TitleView {
         
     }
     
-    private func setupUnderLineView() {
+    fileprivate func setupUnderLineView() {
         scrollView.addSubview(underLineView)
         
         guard let firstLabel = titleLabels.first else {
@@ -146,7 +147,7 @@ extension TitleView {
 
 // MARK: - gesture selector
 extension TitleView {
-    @objc fileprivate func titleLableTap(gesture: UITapGestureRecognizer) {
+    @objc fileprivate func titleLableTap(_ gesture: UITapGestureRecognizer) {
         
         // get tap label
         guard let label = gesture.view as? UILabel else {
@@ -172,7 +173,7 @@ extension TitleView {
             chooseLabel = label.tag
             
             // send delegate to update content view
-            delegate?.titleView(titleView: self, selectedIndex: chooseLabel)
+            delegate?.titleView(self, selectedIndex: chooseLabel)
         }
     }
     
@@ -182,7 +183,7 @@ extension TitleView {
 
 // MARK: - public func
 extension TitleView {
-    func setProgress(progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+    func setProgress(_ progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
         
         // get source lable and target label
         let sourceLable = titleLabels[sourceIndex]

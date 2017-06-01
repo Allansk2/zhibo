@@ -62,7 +62,7 @@ extension HomeViewController {
         view.addSubview(contentView)
     }
     
-    private func setupNavigationBar() {
+    fileprivate func setupNavigationBar() {
         
         // set left bar item
         navigationItem.leftBarButtonItem = UIBarButtonItem(imageName: "logo")
@@ -84,8 +84,8 @@ extension HomeViewController {
 // MARK: - TitleViewDelegate
 extension HomeViewController: TitleViewDelegate {
     
-    func titleView(titleView: TitleView, selectedIndex index: Int) {
-        contentView.setCurrentVC(index: index)
+    func titleView(_ titleView: TitleView, selectedIndex index: Int) {
+        contentView.setCurrentVC(index)
         
     }
 }
@@ -93,8 +93,8 @@ extension HomeViewController: TitleViewDelegate {
 
 // MARK: - ContentViewDelegate
 extension HomeViewController: ContentViewDelegate {
-    func contentView(contentView: ContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
-        titleView.setProgress(progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+    func contentView(_ contentView: ContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        titleView.setProgress(progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
 }
 
