@@ -12,6 +12,8 @@
 		5D19EEF31EDFA1C200F579A7 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D19EEF11EDFA1C200F579A7 /* HeaderView.xib */; };
 		5D19EEFA1EDFA4B600F579A7 /* CollectionSmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19EEF81EDFA4B600F579A7 /* CollectionSmallCell.swift */; };
 		5D19EEFB1EDFA4B600F579A7 /* CollectionSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D19EEF91EDFA4B600F579A7 /* CollectionSmallCell.xib */; };
+		5D19EEFE1EDFA98A00F579A7 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19EEFC1EDFA98A00F579A7 /* CollectionCell.swift */; };
+		5D19EEFF1EDFA98A00F579A7 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D19EEFD1EDFA98A00F579A7 /* CollectionCell.xib */; };
 		5D2B229C1EDCFEDA003820DA /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2B229A1EDCFEDA003820DA /* Home.storyboard */; };
 		5D2B229F1EDCFF7C003820DA /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2B229D1EDCFF7C003820DA /* Live.storyboard */; };
 		5D2B22A21EDCFF94003820DA /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2B22A01EDCFF94003820DA /* Follow.storyboard */; };
@@ -35,6 +37,8 @@
 		5D19EEF11EDFA1C200F579A7 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		5D19EEF81EDFA4B600F579A7 /* CollectionSmallCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionSmallCell.swift; sourceTree = "<group>"; };
 		5D19EEF91EDFA4B600F579A7 /* CollectionSmallCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionSmallCell.xib; sourceTree = "<group>"; };
+		5D19EEFC1EDFA98A00F579A7 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		5D19EEFD1EDFA98A00F579A7 /* CollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
 		5D2B229B1EDCFEDA003820DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		5D2B229E1EDCFF7C003820DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = zhibo/Base.lproj/Live.storyboard; sourceTree = SOURCE_ROOT; };
 		5D2B22A11EDCFF94003820DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = zhibo/Base.lproj/Follow.storyboard; sourceTree = SOURCE_ROOT; };
@@ -113,6 +117,8 @@
 				5D2B22C21EDD1EE5003820DA /* ContentView.swift */,
 				5D19EEF81EDFA4B600F579A7 /* CollectionSmallCell.swift */,
 				5D19EEF91EDFA4B600F579A7 /* CollectionSmallCell.xib */,
+				5D19EEFC1EDFA98A00F579A7 /* CollectionCell.swift */,
+				5D19EEFD1EDFA98A00F579A7 /* CollectionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,6 +363,7 @@
 				5DC4EAAB1EDCA529008860E4 /* Main.storyboard in Resources */,
 				5D19EEF31EDFA1C200F579A7 /* HeaderView.xib in Resources */,
 				5D19EEFB1EDFA4B600F579A7 /* CollectionSmallCell.xib in Resources */,
+				5D19EEFF1EDFA98A00F579A7 /* CollectionCell.xib in Resources */,
 				5D2B229F1EDCFF7C003820DA /* Live.storyboard in Resources */,
 				5D2B229C1EDCFEDA003820DA /* Home.storyboard in Resources */,
 				5D2B22A51EDCFFB3003820DA /* Profile.storyboard in Resources */,
@@ -382,6 +389,7 @@
 				5D2B22BF1EDD164A003820DA /* TitleView.swift in Sources */,
 				5D2B22C11EDD17A3003820DA /* Constant.swift in Sources */,
 				5D2B22C51EDD220B003820DA /* UIColor+Extension.swift in Sources */,
+				5D19EEFE1EDFA98A00F579A7 /* CollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

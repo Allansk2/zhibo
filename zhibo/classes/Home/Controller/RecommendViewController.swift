@@ -10,10 +10,14 @@ import UIKit
 
 private let itemMargin: CGFloat = 10
 private let itemW = (ScreenW - 3 * itemMargin) / 2
-private let itemH = itemW * 0.75
+private let smallItemH = itemW * 0.75
+private let itemH = itemW * 4 / 3
+
+
 private let hearderViewH: CGFloat = 50
 
-private let smallItemCellId = "smallItemCellId"
+private let SmallItemCellId = "SmallItemCellId"
+private let CellId = "CellId"
 private let hearderViewId = "hearderViewId"
 
 class RecommendViewController: UIViewController {
@@ -22,7 +26,7 @@ class RecommendViewController: UIViewController {
        
         // create flow layout
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: itemW, height: itemH)
+        layout.itemSize = CGSize(width: itemW, height: smallItemH)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = itemMargin
         layout.headerReferenceSize = CGSize(width: ScreenW, height: hearderViewH)
@@ -32,7 +36,9 @@ class RecommendViewController: UIViewController {
         var collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.white
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "CollectionSmallCell", bundle: nil), forCellWithReuseIdentifier: smallItemCellId)
+        collectionView.delegate = self
+        collectionView.register(UINib(nibName: "CollectionSmallCell", bundle: nil), forCellWithReuseIdentifier: SmallItemCellId)
+        collectionView.register(UINib(nibName: "CollectionCell", bundle: nil), forCellWithReuseIdentifier: CellId)
         collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: hearderViewId)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -46,9 +52,7 @@ class RecommendViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        
-        
-
+      
    
     }
  
@@ -71,7 +75,7 @@ extension RecommendViewController {
 
 
 
-extension RecommendViewController: UICollectionViewDataSource {
+extension RecommendViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -89,8 +93,16 @@ extension RecommendViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //get cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: smallItemCellId, for: indexPath)
-                
+        var cell = UICollectionViewCell()
+        
+        if indexPath.section == 1 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellId, for: indexPath)
+
+        }else {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: SmallItemCellId, for: indexPath)
+
+        }
+        
         return cell
     }
     
@@ -101,7 +113,15 @@ extension RecommendViewController: UICollectionViewDataSource {
         return hearderView
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.section == 1 {
+            return CGSize(width: itemW, height: itemH)
+        }
+         return CGSize(width: itemW, height: smallItemH)
+    }
 }
+
 
 
 
