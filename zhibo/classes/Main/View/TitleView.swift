@@ -108,9 +108,7 @@ extension TitleView {
             titleLabels.append(label)
             
             // 5. add pan gesture
-            label.isUserInteractionEnabled = true
-//            let tapGes = UITapGestureRecognizer(target: self, action: #selector(self.titleLableTap(gesture:)))
-        
+            label.isUserInteractionEnabled = true        
             let tapGes = UITapGestureRecognizer(target: self, action: #selector(titleLableTap(_:)))
             label.addGestureRecognizer(tapGes)
             

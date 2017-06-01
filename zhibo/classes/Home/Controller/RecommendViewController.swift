@@ -51,9 +51,11 @@ class RecommendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // setup UI
         setupUI()
-      
-   
+       
+        // load data
+        loadData()
         
     }
  
@@ -75,7 +77,24 @@ extension RecommendViewController {
 }
 
 
+// MARK: - load data
+extension RecommendViewController {
+    
+    fileprivate func loadData(){
+        NetworkManager.share.requestData(methodType: .GET, URLString: "http://httpbin.org/get", parameters: ["name": "why" as AnyObject]) { (result, isSuccess) in
+            
+            print(result)
+        }
+        
+      
+        
+    }
+    
+}
 
+
+
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension RecommendViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
