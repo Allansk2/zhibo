@@ -22,6 +22,8 @@ private let hearderViewId = "hearderViewId"
 
 class RecommendViewController: UIViewController {
 
+    fileprivate lazy var recommenVM: RecommendViewModel = RecommendViewModel()
+    
     fileprivate lazy var collectionView: UICollectionView = { [unowned self] in
        
         // create flow layout
@@ -81,13 +83,12 @@ extension RecommendViewController {
 extension RecommendViewController {
     
     fileprivate func loadData(){
-        NetworkManager.share.requestData(methodType: .GET, URLString: "http://httpbin.org/get", parameters: ["name": "why" as AnyObject]) { (result, isSuccess) in
+        
+        recommenVM.loadData {
             
-            print(result)
+            // update UI
+            
         }
-        
-      
-        
     }
     
 }
