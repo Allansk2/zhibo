@@ -87,7 +87,7 @@ extension RecommendViewController {
         recommenVM.loadData {
             
             // update UI
-            
+            self.collectionView.reloadData()
         }
     }
     
@@ -100,16 +100,12 @@ extension RecommendViewController: UICollectionViewDataSource, UICollectionViewD
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 12
+        return recommenVM.anchorGroup.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if section == 0 {
-            return 4
-        }
-        return 2
+        return recommenVM.anchorGroup[section].rooms.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -129,8 +125,15 @@ extension RecommendViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         // section header view
-        let hearderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: hearderViewId, for: indexPath)
-                
+        
+        // get group data
+        let group = recommenVM.anchorGroup[indexPath.section]
+        
+        let hearderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: hearderViewId, for: indexPath) as! HeaderView
+
+        hearderView.group = group
+        
+ 
         return hearderView
     }
     

@@ -29,6 +29,9 @@ class Room: NSObject {
     // number of audience
     var online: Int = 0
     
+    // city
+    var anchor_city: String = ""
+    
     init(dict: [String: NSObject]) {
         super.init()
         setValuesForKeys(dict)

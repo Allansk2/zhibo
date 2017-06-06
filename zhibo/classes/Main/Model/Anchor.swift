@@ -31,6 +31,11 @@ class Anchor: NSObject {
     // Room models
     lazy var rooms: [Room] = [Room]()
     
+    
+    override init() {
+         
+    }
+    
     init(dict : [String: NSObject]) {
         super.init()
         
@@ -41,17 +46,6 @@ class Anchor: NSObject {
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
     }
-    
-//    override func setValue(_ value: Any?, forKey key: String) {
-//        
-//        if key == "room_list" {
-//            if let dataArray = value as? [[String: NSObject]] {
-//                for dict in dataArray {
-//                    rooms.append(Room(dict: dict))
-//                    
-//                }
-//            }
-//        }
-//    }
+ 
     
 }
