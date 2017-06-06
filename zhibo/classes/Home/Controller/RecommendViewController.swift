@@ -13,6 +13,7 @@ private let itemW = (ScreenW - 3 * itemMargin) / 2
 private let smallItemH = itemW * 0.75
 private let itemH = itemW * 4 / 3
 
+private let recycleViewH = ScreenW * 3 / 8
 
 private let hearderViewH: CGFloat = 50
 
@@ -49,6 +50,13 @@ class RecommendViewController: UIViewController {
         
     }()
     
+    fileprivate lazy var recycleView: RecycleView = {
+        
+        let recycleView = RecycleView.recycleView()
+        recycleView.frame = CGRect(x: 0, y: -recycleViewH, width: ScreenW, height: recycleViewH)
+        
+        return recycleView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +81,12 @@ extension RecommendViewController {
         
         // add collection view
         view.addSubview(collectionView)
+        
+        // add recycleview
+        collectionView.addSubview(recycleView)
+        
+        // set collection insert
+        collectionView.contentInset = UIEdgeInsets(top: recycleViewH, left: 0, bottom: 0, right: 0)
     
     }
     
@@ -109,18 +123,23 @@ extension RecommendViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // get room data
+        let group = recommenVM.anchorGroup[indexPath.section]
+        let room = group.rooms[indexPath.item]
+
+        
         //get cell
-        var cell = UICollectionViewCell()
-        
+        var cell = CollectionViewBaseCell()
         if indexPath.section == 1 {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellId, for: indexPath)
-
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellId, for: indexPath) as! CollectionCell
         }else {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: SmallItemCellId, for: indexPath)
-
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: SmallItemCellId, for: indexPath) as! CollectionSmallCell
+            
         }
-        
+        cell.room = room
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

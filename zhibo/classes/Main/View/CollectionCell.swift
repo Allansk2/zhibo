@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import Kingfisher
 
-class CollectionCell: UICollectionViewCell {
+class CollectionCell: CollectionViewBaseCell {
+  
+    @IBOutlet weak var locationBtn: UIButton!
+    
+    
+    override var room: Room? {
+        didSet {
+            // pass it to parent class
+            super.room = room
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+            // set location
+            locationBtn.setTitle(room?.anchor_city, for: [])
+            
+        }
     }
+
 
 }

@@ -8,11 +8,20 @@
 
 import UIKit
 
-class CollectionSmallCell: UICollectionViewCell {
+class CollectionSmallCell: CollectionViewBaseCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    @IBOutlet weak var roomNameLabel: UILabel!
+    
+    override var room: Room? {
+        didSet {
+            // pass it to parent class
+            super.room = room
+            
+            // set room name
+            roomNameLabel.text = room?.room_name
 
+        }
     }
-
+    
+    
 }

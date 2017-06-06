@@ -144,7 +144,7 @@ extension RecommendViewModel {
             
             self.anchorGroup.insert(self.prettyGroup, at: 0)
             self.anchorGroup.insert(self.hotGroup, at: 0)
-            
+            print("all data is ready")
              completion()
         }
         

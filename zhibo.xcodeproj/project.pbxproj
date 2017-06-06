@@ -35,6 +35,9 @@
 		5DC4EAAB1EDCA529008860E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC4EAA91EDCA529008860E4 /* Main.storyboard */; };
 		5DC4EAAD1EDCA529008860E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC4EAAC1EDCA529008860E4 /* Assets.xcassets */; };
 		5DC4EAB01EDCA529008860E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC4EAAE1EDCA529008860E4 /* LaunchScreen.storyboard */; };
+		5DF6D8E31EE6552E0077E2C7 /* CollectionViewBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6D8E21EE6552E0077E2C7 /* CollectionViewBaseCell.swift */; };
+		5DF6D8E51EE65D250077E2C7 /* RecycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6D8E41EE65D250077E2C7 /* RecycleView.swift */; };
+		5DF6D8E71EE65D7C0077E2C7 /* RecycleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DF6D8E61EE65D7C0077E2C7 /* RecycleView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +54,7 @@
 		5D2B229E1EDCFF7C003820DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = zhibo/Base.lproj/Live.storyboard; sourceTree = SOURCE_ROOT; };
 		5D2B22A11EDCFF94003820DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = zhibo/Base.lproj/Follow.storyboard; sourceTree = SOURCE_ROOT; };
 		5D2B22A41EDCFFB3003820DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = zhibo/Base.lproj/Profile.storyboard; sourceTree = SOURCE_ROOT; };
-		5D2B22A61EDD003A003820DA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5D2B22A61EDD003A003820DA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
 		5D2B22B91EDD03D3003820DA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5D2B22BC1EDD06D2003820DA /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		5D2B22BE1EDD164A003820DA /* TitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
@@ -69,6 +72,9 @@
 		5DC4EAAC1EDCA529008860E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DC4EAAF1EDCA529008860E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DC4EAB11EDCA529008860E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DF6D8E21EE6552E0077E2C7 /* CollectionViewBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewBaseCell.swift; sourceTree = "<group>"; };
+		5DF6D8E41EE65D250077E2C7 /* RecycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecycleView.swift; sourceTree = "<group>"; };
+		5DF6D8E61EE65D7C0077E2C7 /* RecycleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecycleView.xib; sourceTree = "<group>"; };
 		6B175B8AD4888EB461A845DB /* Pods-zhibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-zhibo/Pods-zhibo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +112,8 @@
 				5D2B229A1EDCFEDA003820DA /* Home.storyboard */,
 				5D19EEF01EDFA1C200F579A7 /* HeaderView.swift */,
 				5D19EEF11EDFA1C200F579A7 /* HeaderView.xib */,
+				5DF6D8E41EE65D250077E2C7 /* RecycleView.swift */,
+				5DF6D8E61EE65D7C0077E2C7 /* RecycleView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -113,6 +121,7 @@
 		5D2B22AB1EDD02D8003820DA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5D2B22A61EDD003A003820DA /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -136,6 +145,7 @@
 				5D19EEF91EDFA4B600F579A7 /* CollectionSmallCell.xib */,
 				5D19EEFC1EDFA98A00F579A7 /* CollectionCell.swift */,
 				5D19EEFD1EDFA98A00F579A7 /* CollectionCell.xib */,
+				5DF6D8E21EE6552E0077E2C7 /* CollectionViewBaseCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -304,7 +314,6 @@
 				5D2B22AC1EDD02D8003820DA /* Model */,
 				5D2B22AD1EDD02D8003820DA /* View */,
 				5D2B22AB1EDD02D8003820DA /* Controller */,
-				5D2B22A61EDD003A003820DA /* MainViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -417,6 +426,7 @@
 				5D19EEFF1EDFA98A00F579A7 /* CollectionCell.xib in Resources */,
 				5D2B229F1EDCFF7C003820DA /* Live.storyboard in Resources */,
 				5D2B229C1EDCFEDA003820DA /* Home.storyboard in Resources */,
+				5DF6D8E71EE65D7C0077E2C7 /* RecycleView.xib in Resources */,
 				5D2B22A51EDCFFB3003820DA /* Profile.storyboard in Resources */,
 				5D2B22A21EDCFF94003820DA /* Follow.storyboard in Resources */,
 			);
@@ -486,12 +496,14 @@
 				5D10503C1EDF45A2001DB386 /* RecommendViewController.swift in Sources */,
 				5DB3A7B81EDFC2F400AAB0BE /* Date+Extension.swift in Sources */,
 				5D2B22C31EDD1EE5003820DA /* ContentView.swift in Sources */,
+				5DF6D8E31EE6552E0077E2C7 /* CollectionViewBaseCell.swift in Sources */,
 				5D2B22A71EDD003A003820DA /* MainViewController.swift in Sources */,
 				5D19EEF21EDFA1C200F579A7 /* HeaderView.swift in Sources */,
 				5D2B22BA1EDD03D3003820DA /* HomeViewController.swift in Sources */,
 				5D2B22BF1EDD164A003820DA /* TitleView.swift in Sources */,
 				5D2B22C11EDD17A3003820DA /* Constant.swift in Sources */,
 				5D2B22C51EDD220B003820DA /* UIColor+Extension.swift in Sources */,
+				5DF6D8E51EE65D250077E2C7 /* RecycleView.swift in Sources */,
 				5D19EEFE1EDFA98A00F579A7 /* CollectionCell.swift in Sources */,
 				5DB3A7B61EDFC01400AAB0BE /* RecommendViewModel.swift in Sources */,
 			);
