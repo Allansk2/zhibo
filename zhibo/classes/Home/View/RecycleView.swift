@@ -13,8 +13,27 @@ private let recycleCellId = "recycleCellId"
 
 class RecycleView: UIView {
  
-    @IBOutlet weak var collectionView: UICollectionView!
+    var timer: Timer?
     
+    var recycleModels: [RecycleModel]? {
+        didSet {
+            
+            // reload date
+            self.collectionView.reloadData()
+            
+            // set page controll
+            pageControll.numberOfPages = recycleModels?.count ?? 0
+            
+            
+            let indexPath = NSIndexPath(item: (recycleModels?.count ?? 0) * 1000, section: 0)
+            collectionView.scrollToItem(at: indexPath as IndexPath, at: .left, animated: false)
+            
+            removeTimer()
+            addTimer()
+        }
+    }
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControll: UIPageControl!
     
     override func awakeFromNib() {
@@ -23,7 +42,7 @@ class RecycleView: UIView {
         autoresizingMask = UIViewAutoresizing()
         
         // register cell
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: recycleCellId)
+        collectionView.register(UINib(nibName: "RecycleCell", bundle: nil), forCellWithReuseIdentifier: recycleCellId)
         
     }
     
@@ -51,24 +70,70 @@ extension RecycleView {
 
 // MARK: - UICollectionViewDataSource
 extension RecycleView: UICollectionViewDataSource {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
+  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return (recycleModels?.count ?? 0) * 10000
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: recycleCellId, for: indexPath)
+        let index = indexPath.item % (recycleModels!.count)
         
-        cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.red : UIColor.green
+        let recycleModel = recycleModels![index]
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: recycleCellId, for: indexPath) as! RecycleCell
+        cell.recycleModel = recycleModel
+         
         return cell
         
     }
     
 }
+
+extension RecycleView: UICollectionViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // get scroll content off
+        let offsetX = scrollView.contentOffset.x
+        
+        // calculate current index
+        let currentIndex = Int(offsetX / scrollView.bounds.width + 0.5) % (recycleModels!.count ?? 1)
+        
+        pageControll.currentPage = currentIndex
+        
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        removeTimer()
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        removeTimer()
+        addTimer()
+    }
+}
+
+extension RecycleView {
+
+    fileprivate func addTimer() {
+        timer = Timer(timeInterval: 3.0, target: self, selector: #selector(viewNext), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: .commonModes)
+    }
+    
+    fileprivate func removeTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc private func viewNext() {
+        
+        var offsetX = collectionView.contentOffset.x
+        offsetX += collectionView.bounds.width
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
+     
+    }
+    
+}
+
 

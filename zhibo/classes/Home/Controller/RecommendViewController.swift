@@ -21,6 +21,7 @@ private let SmallItemCellId = "SmallItemCellId"
 private let CellId = "CellId"
 private let hearderViewId = "hearderViewId"
 
+
 class RecommendViewController: UIViewController {
 
     fileprivate lazy var recommenVM: RecommendViewModel = RecommendViewModel()
@@ -102,6 +103,11 @@ extension RecommendViewController {
             
             // update UI
             self.collectionView.reloadData()
+        }
+        
+        recommenVM.requestRecycleViewData { 
+            
+            self.recycleView.recycleModels = self.recommenVM.recycleRooms
         }
     }
     

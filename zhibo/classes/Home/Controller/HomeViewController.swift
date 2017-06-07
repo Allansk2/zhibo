@@ -43,7 +43,14 @@ class HomeViewController: UIViewController {
 
         // setup UI
         setupUI()
+        
+ 
      }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
 
 }
 
@@ -93,6 +100,12 @@ extension HomeViewController: TitleViewDelegate {
 
 // MARK: - ContentViewDelegate
 extension HomeViewController: ContentViewDelegate {
+    
+//    func shouldHideNavigationBar(_ contentView: ContentView, hide: Bool) {
+//        print("shouldHideNavigationBar \(hide)")
+//        navigationController?.setNavigationBarHidden(hide, animated: true)
+//    }
+
     func contentView(_ contentView: ContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
         titleView.setProgress(progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }

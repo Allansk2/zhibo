@@ -14,7 +14,7 @@ class RecommendViewModel {
     lazy var anchorGroup: [Anchor] = [Anchor]()
     fileprivate lazy var hotGroup = Anchor()
     fileprivate lazy var prettyGroup = Anchor()
-    
+    lazy var recycleRooms:[RecycleModel] = [RecycleModel]()
     
 //    func loadData() {
 //        
@@ -148,6 +148,31 @@ extension RecommendViewModel {
              completion()
         }
         
+    }
+    
+    
+    func requestRecycleViewData(_ completion: @escaping ()->()) {
+        NetworkManager.share.requestData(methodType: .GET, URLString: "http://www.douyutv.com/api/v1/slide/6", parameters: ["version" : "2.300"] as [String : AnyObject]) { (result, isSuccess) in
+      
+            // kvc to dictionary
+            guard let resultDict = result as? [String: NSObject] else {
+                return
+            }
+            
+            // get data
+            guard let dataArray = resultDict["data"] as? [[String: NSObject]] else {
+                return
+            }
+            
+     
+            //data to model
+            for dict in dataArray {
+                self.recycleRooms.append(RecycleModel(dict: dict))
+            }
+           
+            completion();
+       
+        }
     }
     
 }
