@@ -28,10 +28,12 @@ class Anchor: NSObject {
     // icon
     var icon_name: String = "home_header_normal"
     
+    // icon url
+    var icon_url: String = ""
+    
     // Room models
     lazy var rooms: [Room] = [Room]()
-    
-    
+     
     override init() {
          
     }

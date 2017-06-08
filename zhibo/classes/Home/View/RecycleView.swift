@@ -39,6 +39,7 @@ class RecycleView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // important: let view not auto resizing as parent view!
         autoresizingMask = UIViewAutoresizing()
         
         // register cell

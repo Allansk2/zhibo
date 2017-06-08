@@ -14,6 +14,7 @@ private let smallItemH = itemW * 0.75
 private let itemH = itemW * 4 / 3
 
 private let recycleViewH = ScreenW * 3 / 8
+private let recommendGameViewH: CGFloat = 90
 
 private let hearderViewH: CGFloat = 50
 
@@ -54,9 +55,17 @@ class RecommendViewController: UIViewController {
     fileprivate lazy var recycleView: RecycleView = {
         
         let recycleView = RecycleView.recycleView()
-        recycleView.frame = CGRect(x: 0, y: -recycleViewH, width: ScreenW, height: recycleViewH)
+        recycleView.frame = CGRect(x: 0, y: -(recycleViewH + recommendGameViewH), width: ScreenW, height: recycleViewH)
         
         return recycleView
+    }()
+    
+    fileprivate lazy var recommendGameView: RecommendGameView = {
+        
+        let recommendGameView = RecommendGameView.recommendGameView()
+        recommendGameView.frame = CGRect(x: 0, y: -recommendGameViewH, width: ScreenW, height: recommendGameViewH)
+        
+        return recommendGameView
     }()
     
     override func viewDidLoad() {
@@ -86,8 +95,11 @@ extension RecommendViewController {
         // add recycleview
         collectionView.addSubview(recycleView)
         
+        // add recommendGameView
+        collectionView.addSubview(recommendGameView)
+        
         // set collection insert
-        collectionView.contentInset = UIEdgeInsets(top: recycleViewH, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: recycleViewH + recommendGameViewH, left: 0, bottom: 0, right: 0)
     
     }
     
@@ -103,6 +115,10 @@ extension RecommendViewController {
             
             // update UI
             self.collectionView.reloadData()
+            
+            // set recommomeng view data
+            self.recommendGameView.anchorGroup = self.recommenVM.anchorGroup
+            
         }
         
         recommenVM.requestRecycleViewData { 

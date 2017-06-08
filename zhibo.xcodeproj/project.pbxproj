@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		267DC1BC65BA48C16BD9E9A4 /* Pods_zhibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C41FBA189D7DCA595B00477 /* Pods_zhibo.framework */; };
+		5D06AA6A1EE8E27900AAE63F /* RecommendGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D06AA691EE8E27900AAE63F /* RecommendGameView.swift */; };
+		5D06AA6C1EE8E28600AAE63F /* RecommendGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D06AA6B1EE8E28600AAE63F /* RecommendGameView.xib */; };
+		5D06AA6F1EE8E80900AAE63F /* RecommendGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D06AA6D1EE8E80900AAE63F /* RecommendGameCell.swift */; };
+		5D06AA701EE8E80900AAE63F /* RecommendGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D06AA6E1EE8E80900AAE63F /* RecommendGameCell.xib */; };
 		5D10503C1EDF45A2001DB386 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D10503B1EDF45A2001DB386 /* RecommendViewController.swift */; };
 		5D14E7E81EE7ADE000B40147 /* RecycleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14E7E61EE7ADE000B40147 /* RecycleCell.swift */; };
 		5D14E7E91EE7ADE000B40147 /* RecycleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D14E7E71EE7ADE000B40147 /* RecycleCell.xib */; };
@@ -46,6 +50,10 @@
 /* Begin PBXFileReference section */
 		33EC002B8BF2C8F619410467 /* Pods-zhibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zhibo/Pods-zhibo.debug.xcconfig"; sourceTree = "<group>"; };
 		4C41FBA189D7DCA595B00477 /* Pods_zhibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zhibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D06AA691EE8E27900AAE63F /* RecommendGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendGameView.swift; sourceTree = "<group>"; };
+		5D06AA6B1EE8E28600AAE63F /* RecommendGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendGameView.xib; sourceTree = "<group>"; };
+		5D06AA6D1EE8E80900AAE63F /* RecommendGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendGameCell.swift; sourceTree = "<group>"; };
+		5D06AA6E1EE8E80900AAE63F /* RecommendGameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendGameCell.xib; sourceTree = "<group>"; };
 		5D10503B1EDF45A2001DB386 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		5D14E7E61EE7ADE000B40147 /* RecycleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecycleCell.swift; sourceTree = "<group>"; };
 		5D14E7E71EE7ADE000B40147 /* RecycleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecycleCell.xib; sourceTree = "<group>"; };
@@ -123,6 +131,10 @@
 				5DF6D8E61EE65D7C0077E2C7 /* RecycleView.xib */,
 				5D14E7E61EE7ADE000B40147 /* RecycleCell.swift */,
 				5D14E7E71EE7ADE000B40147 /* RecycleCell.xib */,
+				5D06AA691EE8E27900AAE63F /* RecommendGameView.swift */,
+				5D06AA6B1EE8E28600AAE63F /* RecommendGameView.xib */,
+				5D06AA6D1EE8E80900AAE63F /* RecommendGameCell.swift */,
+				5D06AA6E1EE8E80900AAE63F /* RecommendGameCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -437,7 +449,9 @@
 				5D14E7E91EE7ADE000B40147 /* RecycleCell.xib in Resources */,
 				5D2B229C1EDCFEDA003820DA /* Home.storyboard in Resources */,
 				5DF6D8E71EE65D7C0077E2C7 /* RecycleView.xib in Resources */,
+				5D06AA701EE8E80900AAE63F /* RecommendGameCell.xib in Resources */,
 				5D2B22A51EDCFFB3003820DA /* Profile.storyboard in Resources */,
+				5D06AA6C1EE8E28600AAE63F /* RecommendGameView.xib in Resources */,
 				5D2B22A21EDCFF94003820DA /* Follow.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +514,7 @@
 				5D19EEFA1EDFA4B600F579A7 /* CollectionSmallCell.swift in Sources */,
 				5D2B22BD1EDD06D2003820DA /* UIBarButtonItem+Extension.swift in Sources */,
 				5DB3A7BC1EDFC64800AAB0BE /* Anchor.swift in Sources */,
+				5D06AA6F1EE8E80900AAE63F /* RecommendGameCell.swift in Sources */,
 				5DB3A7BE1EDFC89900AAB0BE /* Room.swift in Sources */,
 				5DC4EAA61EDCA529008860E4 /* AppDelegate.swift in Sources */,
 				5DB3A7B31EDFBBD600AAB0BE /* NetworkManager.swift in Sources */,
@@ -510,6 +525,7 @@
 				5DF6D8E31EE6552E0077E2C7 /* CollectionViewBaseCell.swift in Sources */,
 				5D2B22A71EDD003A003820DA /* MainViewController.swift in Sources */,
 				5D19EEF21EDFA1C200F579A7 /* HeaderView.swift in Sources */,
+				5D06AA6A1EE8E27900AAE63F /* RecommendGameView.swift in Sources */,
 				5D2B22BA1EDD03D3003820DA /* HomeViewController.swift in Sources */,
 				5D2B22BF1EDD164A003820DA /* TitleView.swift in Sources */,
 				5D2B22C11EDD17A3003820DA /* Constant.swift in Sources */,
