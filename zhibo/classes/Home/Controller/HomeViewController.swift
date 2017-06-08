@@ -27,7 +27,8 @@ class HomeViewController: UIViewController {
         
         var childVCs = [UIViewController]()
         childVCs.append(RecommendViewController())
-        for _ in 0..<3 {
+        childVCs.append(GameViewController())
+        for _ in 0..<2 {
             let vc = UIViewController()
             childVCs.append(vc)
             vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(256)), g: CGFloat(arc4random_uniform(256)), b: CGFloat(arc4random_uniform(256)))

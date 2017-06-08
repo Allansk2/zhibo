@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Anchor: NSObject {
+class Anchor: BaseModel {
 
     // room list
     var room_list: [[String: NSObject]]? {
@@ -22,32 +22,12 @@ class Anchor: NSObject {
             }
         }
     }
-    
-    var tag_name: String = ""
+ 
     
     // icon
     var icon_name: String = "home_header_normal"
-    
-    // icon url
-    var icon_url: String = ""
-    
+     
     // Room models
     lazy var rooms: [Room] = [Room]()
-     
-    override init() {
-         
-    }
-    
-    init(dict : [String: NSObject]) {
-        super.init()
-        
-        setValuesForKeys(dict)
-    }
-    
-    
-    override func setValue(_ value: Any?, forUndefinedKey key: String) {
-        
-    }
- 
-    
+      
 }

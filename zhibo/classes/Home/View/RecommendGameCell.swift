@@ -16,13 +16,12 @@ class RecommendGameCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    var anchor: Anchor? {
+    var base: BaseModel? {
         didSet {
             
-            
-            titleLabel.text = anchor?.tag_name
+            titleLabel.text = base?.tag_name
             // set icon image
-            guard let url = URL(string: (anchor?.icon_url)!) else {
+            guard let url = URL(string: (base?.icon_url)!) else {
                 return
             }
             iconImageView.kf.setImage(with: url)
