@@ -12,8 +12,10 @@ class HeaderView: UICollectionReusableView {
 
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var moreBtn: UIButton!
+   
+    @IBOutlet weak var iconImageLeading: NSLayoutConstraint!
     
-    //
     var group: Anchor? {
         didSet {
             titleLabel.text = group?.tag_name

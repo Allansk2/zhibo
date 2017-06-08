@@ -26,7 +26,6 @@
                     <rect key="frame" x="10" y="21" width="18" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="F1g-sT-9Qt"/>
-                        <constraint firstAttribute="width" constant="18" id="NrN-sq-hzi"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="游戏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taX-7i-IUY">
@@ -59,7 +58,9 @@
                 <constraint firstAttribute="trailing" secondItem="5f8-GE-6bA" secondAttribute="trailing" constant="10" id="raL-aW-pga"/>
             </constraints>
             <connections>
+                <outlet property="iconImageLeading" destination="oww-h3-ceR" id="gbP-bz-Tey"/>
                 <outlet property="iconImageView" destination="wli-sG-cyc" id="ffr-8q-wP0"/>
+                <outlet property="moreBtn" destination="5f8-GE-6bA" id="CuM-Yb-hxc"/>
                 <outlet property="titleLabel" destination="taX-7i-IUY" id="hzy-d9-B2M"/>
             </connections>
             <point key="canvasLocation" x="5.5" y="53.5"/>
