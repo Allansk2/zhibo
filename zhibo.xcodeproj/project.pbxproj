@@ -693,6 +693,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33EC002B8BF2C8F619410467 /* Pods-zhibo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = zhibo/Info.plist;
@@ -708,6 +709,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B175B8AD4888EB461A845DB /* Pods-zhibo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = zhibo/Info.plist;

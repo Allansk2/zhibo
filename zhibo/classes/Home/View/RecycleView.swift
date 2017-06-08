@@ -99,7 +99,7 @@ extension RecycleView: UICollectionViewDelegate {
         let offsetX = scrollView.contentOffset.x
         
         // calculate current index
-        let currentIndex = Int(offsetX / scrollView.bounds.width + 0.5) % (recycleModels!.count ?? 1)
+        let currentIndex = Int(offsetX / scrollView.bounds.width + 0.5) % (recycleModels!.count )
         
         pageControll.currentPage = currentIndex
         

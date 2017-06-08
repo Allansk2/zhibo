@@ -124,9 +124,6 @@ extension RecommendViewModel {
                 
             }
             
-            var anchorGroupnew: [Anchor] = self.anchorGroup
-            
-          
             for group in self.anchorGroup {
                 
                 for room in group.rooms {
