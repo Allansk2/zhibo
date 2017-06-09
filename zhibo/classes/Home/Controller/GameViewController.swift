@@ -13,6 +13,8 @@ private let itemW: CGFloat = (ScreenW - 2 * margin) / 4
 private let itemH: CGFloat = 85
 private let headerViewH: CGFloat = 50
 private let headerViewLeftMargin = margin + (itemW - 45) / 2
+private let recommendGameViewH: CGFloat = 90
+
 
 private let gameCellId = "gameCellId"
 private let headerViewId = "headerViewId"
@@ -44,6 +46,25 @@ class GameViewController: UIViewController {
         return collectionView
         
     }()
+    
+    fileprivate lazy var topView: HeaderView = {
+        let headerView = HeaderView.headerView()
+        headerView.frame = CGRect(x: 0, y: -(headerViewH + recommendGameViewH), width: ScreenW, height: headerViewH)
+        headerView.moreBtn.isHidden = true
+        headerView.titleLabel.text = "常用"
+        headerView.iconImageView.image = UIImage(named: "Img_orange")
+        headerView.iconImageLeading.constant = headerViewLeftMargin
+        return headerView
+    }()
+    
+    fileprivate lazy var recommendGameView: RecommendGameView = {
+        
+        let recommendGameView = RecommendGameView.recommendGameView()
+        recommendGameView.frame = CGRect(x: 0, y: -recommendGameViewH, width: ScreenW, height: recommendGameViewH)
+        
+        return recommendGameView
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +86,15 @@ extension GameViewController {
     
     fileprivate func setupUI() {
         view.addSubview(collectionView)
-
+        
+        // add top view to collection view
+        collectionView.addSubview(topView)
+ 
+        // add recommendGameView
+        collectionView.addSubview(recommendGameView)
+        
+        collectionView.contentInset = UIEdgeInsets(top: headerViewH + recommendGameViewH, left: 0, bottom: 0, right: 0)
+        
     }
 }
 
@@ -78,6 +107,9 @@ extension GameViewController {
             
             // update UI
             self.collectionView.reloadData()
+            
+            // get first 10 games
+            self.recommendGameView.anchorGroup = Array(self.gameVM.games[0...9])
   
         }
         

@@ -117,7 +117,20 @@ extension RecommendViewController {
             self.collectionView.reloadData()
             
             // set recommomeng view data
-            self.recommendGameView.anchorGroup = self.recommenVM.anchorGroup
+            
+            var groups = self.recommenVM.anchorGroup
+            
+            // remove first two item
+            groups.removeFirst()
+            groups.removeFirst()
+            
+            // add more
+            let more: Anchor = Anchor()
+            more.tag_name = "更多分类"
+            
+            groups.append(more)
+            
+            self.recommendGameView.anchorGroup = groups
             
         }
         

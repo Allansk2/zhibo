@@ -15,22 +15,11 @@ class RecommendGameView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     
 
-    var anchorGroup: [Anchor]? {
+    var anchorGroup: [BaseModel]? {
         didSet {
-            
-            // remove first two item
-            anchorGroup?.removeFirst()
-            anchorGroup?.removeFirst()
-            
-            // add more
-            let more: Anchor = Anchor()
-            more.tag_name = "更多分类"
-            
-            anchorGroup?.append(more)
-            
+    
             collectionView.reloadData()
-            
-            
+             
         }
     }
     
