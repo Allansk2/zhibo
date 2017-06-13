@@ -28,11 +28,9 @@ class HomeViewController: UIViewController {
         var childVCs = [UIViewController]()
         childVCs.append(RecommendViewController())
         childVCs.append(GameViewController())
-        for _ in 0..<2 {
-            let vc = UIViewController()
-            childVCs.append(vc)
-            vc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(256)), g: CGFloat(arc4random_uniform(256)), b: CGFloat(arc4random_uniform(256)))
-        }
+        childVCs.append(EntertainmentViewController())
+        childVCs.append(PlayViewController())
+   
         let contentView = ContentView(frame: rect, childVCs: childVCs, parentVC: self)
         contentView.delegate = self
         return contentView

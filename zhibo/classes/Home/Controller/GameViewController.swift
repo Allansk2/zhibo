@@ -9,24 +9,24 @@
 import UIKit
 
 private let margin: CGFloat = 20
-private let itemW: CGFloat = (ScreenW - 2 * margin) / 4
-private let itemH: CGFloat = 85
+private let gameItemW: CGFloat = (ScreenW - 2 * margin) / 4
+private let gameItemH: CGFloat = 85
 private let headerViewH: CGFloat = 50
-private let headerViewLeftMargin = margin + (itemW - 45) / 2
+private let headerViewLeftMargin = margin + (gameItemW - 45) / 2
 private let recommendGameViewH: CGFloat = 90
 
 
 private let gameCellId = "gameCellId"
 private let headerViewId = "headerViewId"
 
-class GameViewController: UIViewController {
+class GameViewController: BaseViewController {
     
     lazy var gameVM: GameViewModel = GameViewModel()
  
     fileprivate lazy var collectionView: UICollectionView = { [unowned self] in
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: itemW, height: itemH)
+        layout.itemSize = CGSize(width: gameItemW, height: gameItemH)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
@@ -84,7 +84,15 @@ class GameViewController: UIViewController {
 
 extension GameViewController {
     
-    fileprivate func setupUI() {
+    internal override func setupUI() {
+        
+        contentView = collectionView
+        
+        view.addSubview(collectionView)
+
+        
+        super.setupUI()
+        
         view.addSubview(collectionView)
         
         // add top view to collection view
@@ -111,6 +119,7 @@ extension GameViewController {
             // get first 10 games
             self.recommendGameView.anchorGroup = Array(self.gameVM.games[0...9])
   
+            self.dataLoaded()
         }
         
   

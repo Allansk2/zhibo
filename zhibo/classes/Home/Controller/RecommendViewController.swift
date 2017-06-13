@@ -8,49 +8,14 @@
 
 import UIKit
 
-private let itemMargin: CGFloat = 10
-private let itemW = (ScreenW - 3 * itemMargin) / 2
-private let smallItemH = itemW * 0.75
-private let itemH = itemW * 4 / 3
 
 private let recycleViewH = ScreenW * 3 / 8
 private let recommendGameViewH: CGFloat = 90
+ 
 
-private let hearderViewH: CGFloat = 50
-
-private let SmallItemCellId = "SmallItemCellId"
-private let CellId = "CellId"
-private let hearderViewId = "hearderViewId"
-
-
-class RecommendViewController: UIViewController {
+class RecommendViewController: BaseAnchorViewController {
 
     fileprivate lazy var recommenVM: RecommendViewModel = RecommendViewModel()
-    
-    fileprivate lazy var collectionView: UICollectionView = { [unowned self] in
-       
-        // create flow layout
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: itemW, height: smallItemH)
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = itemMargin
-        layout.headerReferenceSize = CGSize(width: ScreenW, height: hearderViewH)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: itemMargin, bottom: 0, right: itemMargin)
-        
-        // create collection view
-        var collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.white
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(UINib(nibName: "CollectionSmallCell", bundle: nil), forCellWithReuseIdentifier: SmallItemCellId)
-        collectionView.register(UINib(nibName: "CollectionCell", bundle: nil), forCellWithReuseIdentifier: CellId)
-        collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: hearderViewId)
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        
-        return collectionView
-        
-    }()
     
     fileprivate lazy var recycleView: RecycleView = {
         
@@ -68,17 +33,7 @@ class RecommendViewController: UIViewController {
         return recommendGameView
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // setup UI
-        setupUI()
-       
-        // load data
-        loadData()
-        
-    }
- 
+
 
 }
 
@@ -87,10 +42,9 @@ class RecommendViewController: UIViewController {
 // MARK: - setup UI
 extension RecommendViewController {
     
-    fileprivate func setupUI() {
+    override func setupUI() {
         
-        // add collection view
-        view.addSubview(collectionView)
+        super.setupUI()
         
         // add recycleview
         collectionView.addSubview(recycleView)
@@ -109,7 +63,9 @@ extension RecommendViewController {
 // MARK: - load data
 extension RecommendViewController {
     
-    fileprivate func loadData(){
+    override func loadData(){
+        
+        baseVM = recommenVM
         
         recommenVM.loadData {
             
@@ -132,6 +88,8 @@ extension RecommendViewController {
             
             self.recommendGameView.anchorGroup = groups
             
+            self.dataLoaded()
+            
         }
         
         recommenVM.requestRecycleViewData { 
@@ -145,53 +103,32 @@ extension RecommendViewController {
 
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
-extension RecommendViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension RecommendViewController: UICollectionViewDelegateFlowLayout {
     
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return recommenVM.anchorGroup.count
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recommenVM.anchorGroup[section].rooms.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        // get room data
-        let group = recommenVM.anchorGroup[indexPath.section]
-        let room = group.rooms[indexPath.item]
-
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         //get cell
         var cell = CollectionViewBaseCell()
         if indexPath.section == 1 {
+            
+            // get room data
+            let group = recommenVM.anchorGroup[indexPath.section]
+            let room = group.rooms[indexPath.item]
+            
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellId, for: indexPath) as! CollectionCell
+            cell.room = room
+            return cell
+
         }else {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: SmallItemCellId, for: indexPath) as! CollectionSmallCell
+            
+            return super.collectionView(collectionView, cellForItemAt: indexPath)
+         
             
         }
-        cell.room = room
-        return cell
+        
         
     }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        // section header view
-        
-        // get group data
-        let group = recommenVM.anchorGroup[indexPath.section]
-        
-        let hearderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: hearderViewId, for: indexPath) as! HeaderView
 
-        hearderView.group = group
-        
- 
-        return hearderView
-    }
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 1 {
             return CGSize(width: itemW, height: itemH)

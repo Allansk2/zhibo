@@ -17,6 +17,11 @@
 		5D06AA761EE9011900AAE63F /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D06AA751EE9011900AAE63F /* GameModel.swift */; };
 		5D06AA781EE9040400AAE63F /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D06AA771EE9040400AAE63F /* BaseModel.swift */; };
 		5D10503C1EDF45A2001DB386 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D10503B1EDF45A2001DB386 /* RecommendViewController.swift */; };
+		5D14AF401EEC3CE60076BC96 /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14AF3E1EEC3CE60076BC96 /* MenuViewCell.swift */; };
+		5D14AF411EEC3CE60076BC96 /* MenuViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D14AF3F1EEC3CE60076BC96 /* MenuViewCell.xib */; };
+		5D14AF431EEC48220076BC96 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14AF421EEC48220076BC96 /* PlayViewController.swift */; };
+		5D14AF451EEC4C190076BC96 /* PlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14AF441EEC4C190076BC96 /* PlayViewModel.swift */; };
+		5D14AF471EEC53740076BC96 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14AF461EEC53740076BC96 /* BaseViewController.swift */; };
 		5D14E7E81EE7ADE000B40147 /* RecycleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D14E7E61EE7ADE000B40147 /* RecycleCell.swift */; };
 		5D14E7E91EE7ADE000B40147 /* RecycleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D14E7E71EE7ADE000B40147 /* RecycleCell.xib */; };
 		5D19EEF21EDFA1C200F579A7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19EEF01EDFA1C200F579A7 /* HeaderView.swift */; };
@@ -36,6 +41,12 @@
 		5D2B22C11EDD17A3003820DA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B22C01EDD17A3003820DA /* Constant.swift */; };
 		5D2B22C31EDD1EE5003820DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B22C21EDD1EE5003820DA /* ContentView.swift */; };
 		5D2B22C51EDD220B003820DA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2B22C41EDD220B003820DA /* UIColor+Extension.swift */; };
+		5D501FB01EEB837E00144301 /* EntertainmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D501FAF1EEB837E00144301 /* EntertainmentViewController.swift */; };
+		5D501FB21EEB85AB00144301 /* EntertainmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D501FB11EEB85AB00144301 /* EntertainmentViewModel.swift */; };
+		5D501FB51EEB8A7700144301 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D501FB41EEB8A7700144301 /* BaseViewModel.swift */; };
+		5D501FB71EEB8CBB00144301 /* BaseAnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D501FB61EEB8CBB00144301 /* BaseAnchorViewController.swift */; };
+		5D501FB91EEBB3A400144301 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D501FB81EEBB3A400144301 /* MenuView.swift */; };
+		5D501FBB1EEBB3CD00144301 /* MenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D501FBA1EEBB3CD00144301 /* MenuView.xib */; };
 		5D94AE3F1EE7A9FA00672362 /* RecycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D94AE3E1EE7A9FA00672362 /* RecycleModel.swift */; };
 		5DB3A7B31EDFBBD600AAB0BE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB3A7B21EDFBBD600AAB0BE /* NetworkManager.swift */; };
 		5DB3A7B61EDFC01400AAB0BE /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB3A7B51EDFC01400AAB0BE /* RecommendViewModel.swift */; };
@@ -63,6 +74,11 @@
 		5D06AA751EE9011900AAE63F /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		5D06AA771EE9040400AAE63F /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		5D10503B1EDF45A2001DB386 /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		5D14AF3E1EEC3CE60076BC96 /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
+		5D14AF3F1EEC3CE60076BC96 /* MenuViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewCell.xib; sourceTree = "<group>"; };
+		5D14AF421EEC48220076BC96 /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		5D14AF441EEC4C190076BC96 /* PlayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewModel.swift; sourceTree = "<group>"; };
+		5D14AF461EEC53740076BC96 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5D14E7E61EE7ADE000B40147 /* RecycleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecycleCell.swift; sourceTree = "<group>"; };
 		5D14E7E71EE7ADE000B40147 /* RecycleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecycleCell.xib; sourceTree = "<group>"; };
 		5D19EEF01EDFA1C200F579A7 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -82,6 +98,12 @@
 		5D2B22C01EDD17A3003820DA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		5D2B22C21EDD1EE5003820DA /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5D2B22C41EDD220B003820DA /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		5D501FAF1EEB837E00144301 /* EntertainmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntertainmentViewController.swift; sourceTree = "<group>"; };
+		5D501FB11EEB85AB00144301 /* EntertainmentViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntertainmentViewModel.swift; sourceTree = "<group>"; };
+		5D501FB41EEB8A7700144301 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		5D501FB61EEB8CBB00144301 /* BaseAnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAnchorViewController.swift; sourceTree = "<group>"; };
+		5D501FB81EEBB3A400144301 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		5D501FBA1EEBB3CD00144301 /* MenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuView.xib; sourceTree = "<group>"; };
 		5D94AE3E1EE7A9FA00672362 /* RecycleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecycleModel.swift; sourceTree = "<group>"; };
 		5DB3A7B21EDFBBD600AAB0BE /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5DB3A7B51EDFC01400AAB0BE /* RecommendViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
@@ -118,6 +140,8 @@
 				5D2B22B91EDD03D3003820DA /* HomeViewController.swift */,
 				5D10503B1EDF45A2001DB386 /* RecommendViewController.swift */,
 				5D06AA711EE8F50500AAE63F /* GameViewController.swift */,
+				5D501FAF1EEB837E00144301 /* EntertainmentViewController.swift */,
+				5D14AF421EEC48220076BC96 /* PlayViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -145,6 +169,10 @@
 				5D06AA6B1EE8E28600AAE63F /* RecommendGameView.xib */,
 				5D06AA6D1EE8E80900AAE63F /* RecommendGameCell.swift */,
 				5D06AA6E1EE8E80900AAE63F /* RecommendGameCell.xib */,
+				5D501FB81EEBB3A400144301 /* MenuView.swift */,
+				5D501FBA1EEBB3CD00144301 /* MenuView.xib */,
+				5D14AF3E1EEC3CE60076BC96 /* MenuViewCell.swift */,
+				5D14AF3F1EEC3CE60076BC96 /* MenuViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -153,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				5D2B22A61EDD003A003820DA /* MainViewController.swift */,
+				5D501FB61EEB8CBB00144301 /* BaseAnchorViewController.swift */,
+				5D14AF461EEC53740076BC96 /* BaseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,11 +286,21 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		5D501FB31EEB8A6A00144301 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5D501FB41EEB8A7700144301 /* BaseViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5DB3A7B41EDFBFE500AAB0BE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				5DB3A7B51EDFC01400AAB0BE /* RecommendViewModel.swift */,
 				5D06AA731EE8FC6400AAE63F /* GameViewModel.swift */,
+				5D501FB11EEB85AB00144301 /* EntertainmentViewModel.swift */,
+				5D14AF441EEC4C190076BC96 /* PlayViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -344,6 +384,7 @@
 		5DC4EABD1EDCA9BD008860E4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5D501FB31EEB8A6A00144301 /* ViewModel */,
 				5D2B22AC1EDD02D8003820DA /* Model */,
 				5D2B22AD1EDD02D8003820DA /* View */,
 				5D2B22AB1EDD02D8003820DA /* Controller */,
@@ -452,12 +493,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DC4EAB01EDCA529008860E4 /* LaunchScreen.storyboard in Resources */,
+				5D14AF411EEC3CE60076BC96 /* MenuViewCell.xib in Resources */,
 				5DC4EAAD1EDCA529008860E4 /* Assets.xcassets in Resources */,
 				5DC4EAAB1EDCA529008860E4 /* Main.storyboard in Resources */,
 				5D19EEF31EDFA1C200F579A7 /* HeaderView.xib in Resources */,
 				5D19EEFB1EDFA4B600F579A7 /* CollectionSmallCell.xib in Resources */,
 				5D19EEFF1EDFA98A00F579A7 /* CollectionCell.xib in Resources */,
 				5D2B229F1EDCFF7C003820DA /* Live.storyboard in Resources */,
+				5D501FBB1EEBB3CD00144301 /* MenuView.xib in Resources */,
 				5D14E7E91EE7ADE000B40147 /* RecycleCell.xib in Resources */,
 				5D2B229C1EDCFEDA003820DA /* Home.storyboard in Resources */,
 				5DF6D8E71EE65D7C0077E2C7 /* RecycleView.xib in Resources */,
@@ -528,13 +571,18 @@
 				5DB3A7BC1EDFC64800AAB0BE /* Anchor.swift in Sources */,
 				5D06AA741EE8FC6400AAE63F /* GameViewModel.swift in Sources */,
 				5D06AA6F1EE8E80900AAE63F /* RecommendGameCell.swift in Sources */,
+				5D14AF471EEC53740076BC96 /* BaseViewController.swift in Sources */,
 				5D06AA721EE8F50500AAE63F /* GameViewController.swift in Sources */,
+				5D501FB71EEB8CBB00144301 /* BaseAnchorViewController.swift in Sources */,
+				5D14AF451EEC4C190076BC96 /* PlayViewModel.swift in Sources */,
 				5DB3A7BE1EDFC89900AAB0BE /* Room.swift in Sources */,
 				5DC4EAA61EDCA529008860E4 /* AppDelegate.swift in Sources */,
 				5DB3A7B31EDFBBD600AAB0BE /* NetworkManager.swift in Sources */,
 				5D10503C1EDF45A2001DB386 /* RecommendViewController.swift in Sources */,
 				5D14E7E81EE7ADE000B40147 /* RecycleCell.swift in Sources */,
+				5D501FB51EEB8A7700144301 /* BaseViewModel.swift in Sources */,
 				5D06AA761EE9011900AAE63F /* GameModel.swift in Sources */,
+				5D501FB21EEB85AB00144301 /* EntertainmentViewModel.swift in Sources */,
 				5DB3A7B81EDFC2F400AAB0BE /* Date+Extension.swift in Sources */,
 				5D2B22C31EDD1EE5003820DA /* ContentView.swift in Sources */,
 				5DF6D8E31EE6552E0077E2C7 /* CollectionViewBaseCell.swift in Sources */,
@@ -545,11 +593,15 @@
 				5D2B22BA1EDD03D3003820DA /* HomeViewController.swift in Sources */,
 				5D2B22BF1EDD164A003820DA /* TitleView.swift in Sources */,
 				5D2B22C11EDD17A3003820DA /* Constant.swift in Sources */,
+				5D501FB91EEBB3A400144301 /* MenuView.swift in Sources */,
+				5D14AF431EEC48220076BC96 /* PlayViewController.swift in Sources */,
 				5D2B22C51EDD220B003820DA /* UIColor+Extension.swift in Sources */,
 				5DF6D8E51EE65D250077E2C7 /* RecycleView.swift in Sources */,
 				5D94AE3F1EE7A9FA00672362 /* RecycleModel.swift in Sources */,
 				5D19EEFE1EDFA98A00F579A7 /* CollectionCell.swift in Sources */,
 				5DB3A7B61EDFC01400AAB0BE /* RecommendViewModel.swift in Sources */,
+				5D501FB01EEB837E00144301 /* EntertainmentViewController.swift in Sources */,
+				5D14AF401EEC3CE60076BC96 /* MenuViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

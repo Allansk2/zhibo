@@ -8,10 +8,8 @@
 
 import UIKit
 
-class RecommendViewModel {
+class RecommendViewModel: BaseViewModel {
     
-    
-    lazy var anchorGroup: [Anchor] = [Anchor]()
     fileprivate lazy var hotGroup = Anchor()
     fileprivate lazy var prettyGroup = Anchor()
     lazy var recycleRooms:[RecycleModel] = [RecycleModel]()
@@ -105,36 +103,11 @@ extension RecommendViewModel {
         
         group.enter()
         // 3. request rest
-        NetworkManager.share.requestData(methodType: .GET, URLString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameter as [String : AnyObject]) { (result, isSuccess) in
-            
-            // kvc to dictionary
-            guard let resultDict = result as? [String: NSObject] else {
-                return
-            }
-            
-            // get data
-            guard let dataArray = resultDict["data"] as? [[String: NSObject]] else {
-                return
-            }
-            
-            //data to model
-            for dict in dataArray {
-                let group = Anchor(dict: dict)
-                self.anchorGroup.append(group)
-                
-            }
-            
-            for group in self.anchorGroup {
-                
-                for room in group.rooms {
-                    print(room.room_name)
-                }
-                print("---------")
-            }
-            
+        
+        loadAnchorData(isGroup:true, urlStr: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameter as [String : AnyObject]) {
             group.leave()
         }
-        
+         
         
         // when all data is ready,
         group.notify(queue: DispatchQueue.main) {
